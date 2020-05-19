@@ -1,0 +1,88 @@
+PODS:
+  - Differentiator (4.0.1)
+  - "NSObject+Rx (5.1.0)":
+    - RxSwift (~> 5.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxGesture (3.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - RxKeyboard (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - RxViewController (0.4.1):
+    - RxCocoa (>= 4.0.0)
+    - RxSwift (>= 4.0.0)
+  - SBHelpers (0.2.1):
+    - SBHelpers/Core (= 0.2.1)
+  - SBHelpers/Core (0.2.1)
+  - SBHelpers/Rx (0.2.1):
+    - RxCocoa (~> 5.1)
+    - RxDataSources (~> 4.0)
+    - RxKeyboard (~> 1.0)
+    - RxSwift (~> 5.1)
+    - RxViewController (~> 0.4)
+  - SnapKit (5.0.1)
+  - SwiftFormat/CLI (0.44.7)
+  - SwiftLint (0.39.2)
+  - SwiftPermissionManager (0.2.4)
+
+DEPENDENCIES:
+  - "NSObject+Rx (~> 5.1)"
+  - RxCocoa (~> 5.1)
+  - RxDataSources (~> 4.0)
+  - RxGesture (~> 3.0)
+  - RxKeyboard (~> 1.0)
+  - RxSwift (~> 5.1)
+  - RxViewController (~> 0.4)
+  - SBHelpers (~> 0.2)
+  - SBHelpers/Rx (~> 0.2)
+  - SnapKit (~> 5.0)
+  - SwiftFormat/CLI (~> 0.40)
+  - SwiftLint (~> 0.34)
+  - SwiftPermissionManager
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Differentiator
+    - "NSObject+Rx"
+    - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxKeyboard
+    - RxRelay
+    - RxSwift
+    - RxViewController
+    - SBHelpers
+    - SnapKit
+    - SwiftFormat
+    - SwiftLint
+    - SwiftPermissionManager
+
+SPEC CHECKSUMS:
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
+  RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxViewController: e93e7c233d5b5b62c32231d69726d55f54081bc6
+  SBHelpers: 444e36273cb3639a3a29a76d33e7f5f52c1fbad1
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftFormat: fd97e27b8de5a46c9d1988bf1db1dc92e79f86a3
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  SwiftPermissionManager: fec24ab8efe9d8ed0e6f380dd81f75f1a802dadf
+
+PODFILE CHECKSUM: 1b7e7f8c46b43e1b8763a6dacbf6d19844010d09
+
+COCOAPODS: 1.8.4
