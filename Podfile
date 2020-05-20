@@ -24,7 +24,7 @@ def app_pods
   pod 'SBHelpers',                     '~> 0.2'
   pod 'SBHelpers/Rx',                  '~> 0.2'
 
-  pod 'SnapKit',                      '~> 5.0'
+  pod 'SnapKit',                       '~> 5.0'
 end
 
 target 'Lesoparty' do

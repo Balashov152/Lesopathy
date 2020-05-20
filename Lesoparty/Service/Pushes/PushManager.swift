@@ -38,6 +38,19 @@ extension Storage {
     }
 }
 
+private extension SettingsModel.TypeIntensity {
+    var timeIntervalPushes: TimeInterval {
+        switch self {
+        case .average:
+            return TimeInterval(3 * 60 * 60) // 3 hour
+        case .often:
+            return TimeInterval(1 * 60 * 60) // 1 hour
+        case .rarely:
+            return TimeInterval(5 * 60 * 60) // 5 hour
+        }
+    }
+}
+
 class PushManager: NSObject {
     public static let shared = PushManager()
 
@@ -60,6 +73,28 @@ class PushManager: NSObject {
         center.delegate = self
         center.removeAllPendingNotificationRequests()
         setupBindings()
+    }
+    
+    
+    public func backgroundFetch() {
+        guard let word = Word.findFirst(sortDescriptors: [NSSortDescriptor(key: "rating", ascending: false)],
+                                        context: CoreDataService.shared.context) else { return }
+        word.rating += 0.01
+        CoreDataService.shared.saveContext()
+        
+        let content = PushMessage(word: word)
+        sendLocalPush(content)   
+    }
+    
+    public func updatePushTasks(intensity: SettingsModel.TypeIntensity) {
+        center.removeAllPendingNotificationRequests()
+        let words: [Word] = Word.findAll(context: CoreDataService.shared.context)
+        
+        let _ = words.map { word -> UNNotificationRequest in
+            let content = PushMessage(word: word)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: intensity.timeIntervalPushes, repeats: true)
+            return UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        }
     }
 
     public func updatePushToken() {

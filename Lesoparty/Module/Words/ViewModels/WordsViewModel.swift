@@ -8,6 +8,8 @@
 
 import Foundation
 import CoreData
+import RxSwift
+import RxCocoa
 
 class WordsViewModel: RxTableViewModel {
     lazy var fetchController: NSFetchedResultsController<Word> = {
@@ -20,16 +22,25 @@ class WordsViewModel: RxTableViewModel {
         return controller
     }()
     
+    var deleteItem = PublishSubject<IndexPath>()
+    
     override func setupBindings() {
         super.setupBindings()
         fetchData()
         sections.accept(setupSections())
+        
+        deleteItem.subscribe(onNext: { [weak fetchController] indexPath in
+            let words: [Word] = fetchController?.fetchedObjects ?? []
+            if let word = words[safe: indexPath.row] {
+                CoreDataService.shared.context.delete(word)
+            }
+        }).disposed(by: disposeBag)
     }
     
     func setupSections() -> [Section] {
         let words: [Word] = fetchController.fetchedObjects ?? []
         let items = words.map { word -> LabelViewModel in
-            let item = LabelViewModel(identity: word.id?.uuidString, cellType: LabelTableCell.self)
+            let item = LabelViewModel(identity: word.id, cellType: LabelTableCell.self)
             item.text.accept(word.original.orEmpty + " - " + word.translate.orEmpty)
             
             item.action.subscribe(onNext: {

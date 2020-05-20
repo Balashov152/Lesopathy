@@ -15,7 +15,9 @@
 		EF0AC90A247464BB00D603CC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AC909247464BB00D603CC /* ExtensionDelegate.swift */; };
 		EF0AC90C247464BB00D603CC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AC90B247464BB00D603CC /* NotificationController.swift */; };
 		EF0AC90E247464BC00D603CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0AC90D247464BC00D603CC /* Assets.xcassets */; };
-		EF0AC913247464BC00D603CC /* LesopatyWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EF0AC8F6247464B800D603CC /* LesopatyWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF0AC9212474713300D603CC /* YandexTranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D07224575CE000C9E8AB /* YandexTranslateService.swift */; };
+		EF0AC9242474737E00D603CC /* DetailLabelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AC9222474732E00D603CC /* DetailLabelTableCell.swift */; };
+		EF0AC927247477A500D603CC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AC926247477A500D603CC /* String.swift */; };
 		EF37D0282457519300C9E8AB /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D0272457519300C9E8AB /* ViewControllerFactory.swift */; };
 		EF37D0342457530B00C9E8AB /* RxTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D02E2457530B00C9E8AB /* RxTableViewModel.swift */; };
 		EF37D0352457530B00C9E8AB /* RxTableViewCellJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D0302457530B00C9E8AB /* RxTableViewCellJ.swift */; };
@@ -37,7 +39,6 @@
 		EF37D06E2457587100C9E8AB /* NSManagedObject+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D06D2457587100C9E8AB /* NSManagedObject+Ex.swift */; };
 		EF37D0702457589E00C9E8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF37D06F2457589E00C9E8AB /* LaunchScreen.storyboard */; };
 		EF37D07124575BB200C9E8AB /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D02A245751F400C9E8AB /* WordsViewController.swift */; };
-		EF37D07324575CE000C9E8AB /* YandexTranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D07224575CE000C9E8AB /* YandexTranslateService.swift */; };
 		EF37D0752457615500C9E8AB /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D0742457615400C9E8AB /* PushManager.swift */; };
 		EF37D0772457626000C9E8AB /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D0762457626000C9E8AB /* Storage.swift */; };
 		EF37D0792457630F00C9E8AB /* PushMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37D0782457630F00C9E8AB /* PushMessage.swift */; };
@@ -53,11 +54,9 @@
 		EF97BC8524576E10008646FA /* DatePickerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF97BC8424576E10008646FA /* DatePickerTableCell.swift */; };
 		EFAF13FA23CDAFB40045801A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF13F923CDAFB40045801A /* AppDelegate.swift */; };
 		EFAF140423CDAFB40045801A /* Lesoparty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFAF140223CDAFB40045801A /* Lesoparty.xcdatamodeld */; };
-		EFAF140623CDAFB60045801A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFAF140523CDAFB60045801A /* Assets.xcassets */; };
 		EFAF141423CDAFB70045801A /* LesopartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF141323CDAFB70045801A /* LesopartyTests.swift */; };
 		EFFE22A7245774C70031E8B3 /* ChooseIntensityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE22A6245774C70031E8B3 /* ChooseIntensityTableCell.swift */; };
 		EFFE22A9245777D20031E8B3 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE22A8245777D20031E8B3 /* SettingsService.swift */; };
-		EFFE22CB24577B4F0031E8B3 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EFFE22AC24577B4B0031E8B3 /* WatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,13 +66,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = EF0AC901247464BB00D603CC;
 			remoteInfo = "LesopatyWatch Extension";
-		};
-		EF0AC911247464BC00D603CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EFAF13EE23CDAFB40045801A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF0AC8F5247464B700D603CC;
-			remoteInfo = LesopatyWatch;
 		};
 		EFAF141023CDAFB70045801A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -102,8 +94,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				EF0AC913247464BC00D603CC /* LesopatyWatch.app in Embed Watch Content */,
-				EFFE22CB24577B4F0031E8B3 /* WatchApp.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +114,9 @@
 		EF0AC90D247464BC00D603CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF0AC90F247464BC00D603CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF0AC910247464BC00D603CC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		EF0AC91B2474676C00D603CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF0AC9222474732E00D603CC /* DetailLabelTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLabelTableCell.swift; sourceTree = "<group>"; };
+		EF0AC926247477A500D603CC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EF37D0272457519300C9E8AB /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		EF37D02A245751F400C9E8AB /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
 		EF37D02E2457530B00C9E8AB /* RxTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewModel.swift; sourceTree = "<group>"; };
@@ -162,14 +155,12 @@
 		EFAF13F623CDAFB40045801A /* Lesoparty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lesoparty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFAF13F923CDAFB40045801A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFAF140323CDAFB40045801A /* Lesoparty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lesoparty.xcdatamodel; sourceTree = "<group>"; };
-		EFAF140523CDAFB60045801A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFAF140A23CDAFB60045801A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFAF140F23CDAFB70045801A /* LesopartyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LesopartyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFAF141323CDAFB70045801A /* LesopartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesopartyTests.swift; sourceTree = "<group>"; };
 		EFAF141523CDAFB70045801A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFFE22A6245774C70031E8B3 /* ChooseIntensityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseIntensityTableCell.swift; sourceTree = "<group>"; };
-		EFFE22A8245777D20031E8B3 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
-		EFFE22AC24577B4B0031E8B3 /* WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = WatchApp.app; path = "/Users/sergeybalashov/Projects/Lesopathy/build/Debug-watchos/WatchApp.app"; sourceTree = "<absolute>"; };
+		EFFE22A8245777D20031E8B3 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsService.swift; path = ../../../Service/SettingsService.swift; sourceTree = "<group>"; };
 		EFFE22AF24577B4B0031E8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EFFE22B124577B4E0031E8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFFE22B324577B4E0031E8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +175,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B7E2A77AFFE1BAB88AFDE567 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF0AC8FF247464BB00D603CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,14 +224,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EF0AC8F3247463BF00D603CC /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				EFFE22AC24577B4B0031E8B3 /* WatchApp.app */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		EF0AC8F7247464B800D603CC /* LesopatyWatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +245,30 @@
 				EF0AC910247464BC00D603CC /* PushNotificationPayload.apns */,
 			);
 			path = "LesopatyWatch Extension";
+			sourceTree = "<group>";
+		};
+		EF0AC91D24746A6200D603CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF37D07224575CE000C9E8AB /* YandexTranslateService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF0AC91E24746A9500D603CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE22A8245777D20031E8B3 /* SettingsService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF0AC9252474779D00D603CC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF0AC926247477A500D603CC /* String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EF37D0262457516A00C9E8AB /* Factory */ = {
@@ -305,6 +319,7 @@
 		EF37D0392457534200C9E8AB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EF0AC9252474779D00D603CC /* Extension */,
 				EF37D0512457567600C9E8AB /* Views */,
 				EF37D03F2457535700C9E8AB /* RxCollectionViewController */,
 				EF37D03A2457535100C9E8AB /* RxViewController */,
@@ -351,9 +366,9 @@
 		EF37D04A245755B000C9E8AB /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				EF0AC91B2474676C00D603CC /* Assets.xcassets */,
 				EF97BC7624576C62008646FA /* Sounds */,
 				EF37D0682457585B00C9E8AB /* Appearance */,
-				EFAF140523CDAFB60045801A /* Assets.xcassets */,
 				EFAF140223CDAFB40045801A /* Lesoparty.xcdatamodeld */,
 			);
 			path = Resourses;
@@ -362,6 +377,7 @@
 		EF37D04B245755C100C9E8AB /* Words */ = {
 			isa = PBXGroup;
 			children = (
+				EF0AC91D24746A6200D603CC /* Models */,
 				EF37D0502457566600C9E8AB /* Cells */,
 				EF37D04D245755CE00C9E8AB /* ViewModels */,
 				EF37D04C245755C800C9E8AB /* Controllers */,
@@ -380,7 +396,6 @@
 		EF37D04D245755CE00C9E8AB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EF37D07224575CE000C9E8AB /* YandexTranslateService.swift */,
 				EF37D04E245755DA00C9E8AB /* WordsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -404,9 +419,9 @@
 		EF37D0522457568A00C9E8AB /* Label */ = {
 			isa = PBXGroup;
 			children = (
-				EF37D0532457568A00C9E8AB /* Cells */,
 				EF37D0592457568A00C9E8AB /* SizeLabel.swift */,
 				EF37D05A2457568A00C9E8AB /* PaddingLabel.swift */,
+				EF37D0532457568A00C9E8AB /* Cells */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -416,6 +431,7 @@
 			children = (
 				EF37D0542457568A00C9E8AB /* HeaderLabelTableCell.swift */,
 				EF37D0582457568A00C9E8AB /* LabelTableCell.swift */,
+				EF0AC9222474732E00D603CC /* DetailLabelTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -426,7 +442,6 @@
 				EF37D0762457626000C9E8AB /* Storage.swift */,
 				EF37D07A2457631100C9E8AB /* Pushes */,
 				EF37D0672457576A00C9E8AB /* CoreData */,
-				EFFE22A8245777D20031E8B3 /* SettingsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -506,6 +521,7 @@
 		EF97BC7B24576D58008646FA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				EF0AC91E24746A9500D603CC /* Models */,
 				EF97BC8224576DF1008646FA /* Cells */,
 				EF97BC7D24576D68008646FA /* Controllers */,
 				EF97BC7C24576D61008646FA /* ViewModels */,
@@ -550,7 +566,6 @@
 				EFAF13F723CDAFB40045801A /* Products */,
 				915E401A628B5297773E60F8 /* Pods */,
 				E55D49761C19BF0BE2B5A2DB /* Frameworks */,
-				EF0AC8F3247463BF00D603CC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -622,6 +637,7 @@
 			buildPhases = (
 				EF0AC8F4247464B700D603CC /* Resources */,
 				EF0AC916247464BC00D603CC /* Embed App Extensions */,
+				B7E2A77AFFE1BAB88AFDE567 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -664,7 +680,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EF0AC912247464BC00D603CC /* PBXTargetDependency */,
 			);
 			name = Lesoparty;
 			productName = Lesoparty;
@@ -757,7 +772,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFAF140623CDAFB60045801A /* Assets.xcassets in Resources */,
 				EF97BC7A24576C62008646FA /* quest.mp3 in Resources */,
 				EF37D0702457589E00C9E8AB /* LaunchScreen.storyboard in Resources */,
 				EF97BC7924576C62008646FA /* when.mp3 in Resources */,
@@ -830,6 +844,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0AC927247477A500D603CC /* String.swift in Sources */,
 				EF97BC6E24576492008646FA /* MainTabBarViewModel.swift in Sources */,
 				EF37D0462457535700C9E8AB /* RxCollectionViewModel.swift in Sources */,
 				EF97BC7124576492008646FA /* MainTabBarController.swift in Sources */,
@@ -849,6 +864,7 @@
 				EF37D0792457630F00C9E8AB /* PushMessage.swift in Sources */,
 				EF37D0772457626000C9E8AB /* Storage.swift in Sources */,
 				EFFE22A9245777D20031E8B3 /* SettingsService.swift in Sources */,
+				EF0AC9212474713300D603CC /* YandexTranslateService.swift in Sources */,
 				EF37D05F2457568A00C9E8AB /* LabelTableCell.swift in Sources */,
 				EF37D0602457568A00C9E8AB /* SizeLabel.swift in Sources */,
 				EF37D06C2457585B00C9E8AB /* Colors.swift in Sources */,
@@ -857,7 +873,6 @@
 				EF97BC7224576492008646FA /* MainNavigationController.swift in Sources */,
 				EF37D03D2457535100C9E8AB /* RxViewController.swift in Sources */,
 				EF37D0752457615500C9E8AB /* PushManager.swift in Sources */,
-				EF37D07324575CE000C9E8AB /* YandexTranslateService.swift in Sources */,
 				EF37D0342457530B00C9E8AB /* RxTableViewModel.swift in Sources */,
 				EF37D05B2457568A00C9E8AB /* HeaderLabelTableCell.swift in Sources */,
 				EF37D0482457535700C9E8AB /* RxCollectionViewController.swift in Sources */,
@@ -865,6 +880,7 @@
 				EF97BC7324576492008646FA /* BasketBarButton.swift in Sources */,
 				EF37D0612457568A00C9E8AB /* PaddingLabel.swift in Sources */,
 				EF37D03E2457535100C9E8AB /* RxViewModel.swift in Sources */,
+				EF0AC9242474737E00D603CC /* DetailLabelTableCell.swift in Sources */,
 				EFAF13FA23CDAFB40045801A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -884,11 +900,6 @@
 			isa = PBXTargetDependency;
 			target = EF0AC901247464BB00D603CC /* LesopatyWatch Extension */;
 			targetProxy = EF0AC904247464BB00D603CC /* PBXContainerItemProxy */;
-		};
-		EF0AC912247464BC00D603CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF0AC8F5247464B700D603CC /* LesopatyWatch */;
-			targetProxy = EF0AC911247464BC00D603CC /* PBXContainerItemProxy */;
 		};
 		EFAF141123CDAFB70045801A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1117,7 +1128,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 83A13F2B1A4B4365977B77F8 /* Pods-Lesoparty.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XNMN66Z79;
 				INFOPLIST_FILE = Lesoparty/Info.plist;
@@ -1126,6 +1137,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.balashov.Lesoparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1137,7 +1149,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FDD7F8AAA86CAECAA0372B0 /* Pods-Lesoparty.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XNMN66Z79;
 				INFOPLIST_FILE = Lesoparty/Info.plist;
@@ -1146,6 +1158,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.balashov.Lesoparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1158,6 +1171,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XNMN66Z79;
 				INFOPLIST_FILE = LesopartyTests/Info.plist;
@@ -1180,6 +1194,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XNMN66Z79;
 				INFOPLIST_FILE = LesopartyTests/Info.plist;

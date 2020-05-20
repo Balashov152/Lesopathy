@@ -20,9 +20,9 @@ extension Array where Element: NSManagedObject {
 }
 
 extension NSManagedObject {
-    static func findAll(context: NSManagedObjectContext) -> [NSManagedObject] {
+    static func findAll<T: NSManagedObject>(context: NSManagedObjectContext) -> [T] {
         guard !CoreDataService.shared.isUpdatingNow else { return [] }
-        return find(context: context)
+        return find(context: context) as? [T] ?? []
     }
 
     static func findFirst(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, context: NSManagedObjectContext) -> Self? {

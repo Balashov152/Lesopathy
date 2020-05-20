@@ -23,7 +23,11 @@ import UserNotifications
 
 class PushMessage: UNMutableNotificationContent {
     
-    convenience init(title: String, subtitle: String) {
+    convenience init(word: Word) {
+        self.init(title: word.original ?? "Word", subtitle: word.translate ?? "Translate")
+    }
+    
+    convenience init(title: String, subtitle: String, sound: UNNotificationSound = .init(named: .init("when.mp3")) ) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.subtitle = subtitle

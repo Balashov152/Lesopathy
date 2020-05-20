@@ -21,6 +21,17 @@ class WordsViewController<ViewModel: WordsViewModel>: RxTableViewControllerJ<Vie
         tableView.register(cell: LabelTableCell.self)
     }
     
+    override func setupBindings() {
+        dataSource.canEditRowAtIndexPath = { dataSource, indexPath  in
+          return true
+        }
+        
+        super.setupBindings()
+        
+        tableView.rx.itemDeleted
+            .bind(to: viewModel.deleteItem).disposed(by: disposeBag)
+    }
+    
     @IBAction func addAction(_: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add word", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -30,11 +41,14 @@ class WordsViewController<ViewModel: WordsViewModel>: RxTableViewControllerJ<Vie
             textField.tag = 1
         }
 
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
-            if let word = alert.textFields?.first(where: { $0.tag == 1 })?.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {[weak self]  _ in
+            if let word = alert.textFields?.first(where: { $0.tag == 1 })?.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                word.isCorrectWord {
                 YandexTranslateService().translateAndSaveWord(text: word, completion: { [weak self] in
                     self?.viewModel.fetchData()
                 })
+            } else {
+                self?.showErrorAlert(errorMessage: "Not correct word")
             }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

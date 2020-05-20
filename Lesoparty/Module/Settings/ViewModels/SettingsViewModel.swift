@@ -12,8 +12,6 @@ import SBHelpers
 extension SettingsViewModel {
     enum FirstSectionItems: String, CaseIterable {
         case intensityLabel, intensity
-        
-        static let sectionName = "MainSection"
     }
 }
 

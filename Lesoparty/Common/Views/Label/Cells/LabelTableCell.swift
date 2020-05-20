@@ -49,7 +49,7 @@ class LabelTableCell: RxTableViewCellJ, RxViewModable {
         }
     }
 
-    func setupWith(viewModel: RowViewModel) {
+    open func setupWith(viewModel: RowViewModel) {
         if let viewModel = viewModel as? LabelViewModelble {
             viewModel.text
                 .bind(to: label.rx.text).disposed(by: disposeBag)

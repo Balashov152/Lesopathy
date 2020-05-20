@@ -34,11 +34,11 @@ struct SettingsModel {
 }
 
 class SettingsService {
-    
     var intensityType: SettingsModel.TypeIntensity {
         get {
             return Storage.intensityType ?? .often
         } set {
+            PushManager.shared.updatePushTasks(intensity: newValue)
             Storage.intensityType = newValue
         }
         
