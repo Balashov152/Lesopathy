@@ -18,7 +18,7 @@ class WordsViewController<ViewModel: WordsViewModel>: RxTableViewControllerJ<Vie
         super.loadView()
         title = "Words"
         navigationItem.rightBarButtonItem = addButton
-        tableView.register(cell: LabelTableCell.self)
+        tableView.register(cell: WordTableCell.self)
     }
     
     override func setupBindings() {

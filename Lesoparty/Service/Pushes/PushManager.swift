@@ -73,28 +73,38 @@ class PushManager: NSObject {
         center.delegate = self
         center.removeAllPendingNotificationRequests()
         setupBindings()
+        
+        let timer = DispatchSource.makeTimerSource()
+        timer.schedule(deadline: .now(), repeating: .seconds(10))
+        timer.setEventHandler(handler: {
+            PushManager.shared.backgroundFetch {}
+        })
+        
+        timer.activate()
     }
     
     
-    public func backgroundFetch() {
-        guard let word = Word.findFirst(sortDescriptors: [NSSortDescriptor(key: "rating", ascending: false)],
-                                        context: CoreDataService.shared.context) else { return }
+    public func backgroundFetch(completion: @escaping () -> () = {}) {
+        guard let word = Word.findFirst(sortDescriptors: [NSSortDescriptor(key: "rating", ascending: true)],
+                                        context: .main) else { return }
         word.rating += 0.01
         CoreDataService.shared.saveContext()
         
         let content = PushMessage(word: word)
-        sendLocalPush(content)   
+        sendLocalPush(content, completion: completion)
     }
     
     public func updatePushTasks(intensity: SettingsModel.TypeIntensity) {
         center.removeAllPendingNotificationRequests()
-        let words: [Word] = Word.findAll(context: CoreDataService.shared.context)
+        let words: [Word] = Word.findAll(sortDescriptors: [NSSortDescriptor(key: "rating", ascending: true)],
+                                         context: .main)
         
-        let _ = words.map { word -> UNNotificationRequest in
-            let content = PushMessage(word: word)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: intensity.timeIntervalPushes, repeats: true)
-            return UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        }
+//        let _ = words.enumerated().map { word -> UNNotificationRequest in
+//            let content = PushMessage(word: word.element)
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: intensity.timeIntervalPushes, repeats: true)
+//            return UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//        }
+//        requests.forEach { center.add($0, withCompletionHandler: nil) }
     }
 
     public func updatePushToken() {
@@ -120,19 +130,22 @@ class PushManager: NSObject {
         Storage.pushToken = token
     }
 
-    public func sendLocalPush(_ push: PushMessage) {
+    public func sendLocalPush(_ push: PushMessage, completion: @escaping () -> () = {}) {
         push.sound = UNNotificationSound(named: UNNotificationSoundName("when.mp3"))
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .leastNonzeroMagnitude, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: push, trigger: trigger)
         center.add(request) { err in
-            print("error sendLocalPush", err?.localizedDescription as Any)
+            if let err = err {
+                print("error sendLocalPush", err.localizedDescription)
+            }
+            completion()
         }
     }
 
     func didPressPush(message: PushMessage) {
-
+        
     }
 
     func didPressOnNotificationContent(_ content: UNNotificationContent) {

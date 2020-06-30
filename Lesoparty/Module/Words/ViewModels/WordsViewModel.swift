@@ -33,6 +33,7 @@ class WordsViewModel: RxTableViewModel {
             let words: [Word] = fetchController?.fetchedObjects ?? []
             if let word = words[safe: indexPath.row] {
                 CoreDataService.shared.context.delete(word)
+                CoreDataService.shared.saveContext()
             }
         }).disposed(by: disposeBag)
     }
@@ -40,9 +41,9 @@ class WordsViewModel: RxTableViewModel {
     func setupSections() -> [Section] {
         let words: [Word] = fetchController.fetchedObjects ?? []
         let items = words.map { word -> LabelViewModel in
-            let item = LabelViewModel(identity: word.id, cellType: LabelTableCell.self)
+            let item = WordTableCellViewModel(identity: word.id, cellType: WordTableCell.self)
             item.text.accept(word.original.orEmpty + " - " + word.translate.orEmpty)
-            
+            item.progress.accept(word.rating)
             item.action.subscribe(onNext: {
                 PushManager.shared.sendLocalPush(PushMessage(title: word.original.orEmpty,
                                                              subtitle: word.translate.orEmpty))

@@ -10,6 +10,10 @@ import CoreData
 import Foundation
 import RxSwift
 
+extension NSManagedObjectContext {
+    static var main: NSManagedObjectContext { CoreDataService.shared.context }
+}
+
 class CoreDataService {
     static let shared = CoreDataService()
     static let version = 1
